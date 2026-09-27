@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bfdegh3dfhd87"]
 
-[node name="Robo" type="Node2D" unique_id=1028328356]
+[ext_resource type="PackedScene" uid="uid://dotygdqtgtmj2" path="res://scence/game_manager.tscn" id="1_tt04m"]
 
-[node name="Button" type="Button" parent="." unique_id=956633719]
-offset_left = 505.0
-offset_top = 309.0
-offset_right = 557.0
-offset_bottom = 323.0
+[node name="main" type="Node2D" unique_id=1028328356]
+
+[node name="Screens" type="Node" parent="." unique_id=1422789728]
+
+[node name="GameManager" parent="." unique_id=1777119871 instance=ExtResource("1_tt04m")]

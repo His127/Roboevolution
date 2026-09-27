@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dotygdqtgtmj2"]
+
+[ext_resource type="Script" uid="uid://bj0y4o2qj2bu5" path="res://ScreenManager.cs" id="1_fniis"]
+[ext_resource type="PackedScene" uid="uid://ho5kq7ndaa8g" path="res://scence/title_screen.tscn" id="2_ssrxt"]
+[ext_resource type="Script" uid="uid://cmd1yn2sttfg3" path="res://resource/resourceScripts/ScreenEntry.cs" id="3_s7qg5"]
+
+[sub_resource type="Resource" id="Resource_s5ajm"]
+script = ExtResource("3_s7qg5")
+Key = "title"
+Screen = ExtResource("2_ssrxt")
+metadata/_custom_type_script = "uid://cmd1yn2sttfg3"
+
+[node name="GameManager" type="Node" unique_id=1777119871]
+
+[node name="ScreenManager" type="Node" parent="." unique_id=1848498020]
+script = ExtResource("1_fniis")
+screenEntries = Array[Object]([SubResource("Resource_s5ajm"), null])
