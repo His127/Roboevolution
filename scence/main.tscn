@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bfdegh3dfhd87"]
+
+[node name="Robo" type="Node2D" unique_id=1028328356]
+
+[node name="Button" type="Button" parent="." unique_id=956633719]
+offset_left = 505.0
+offset_top = 309.0
+offset_right = 557.0
+offset_bottom = 323.0
