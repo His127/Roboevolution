@@ -13,8 +13,7 @@ public partial class ScreenManager : Node{
     public override void _Ready(){
    
    		foreach(ScreenEntry screenEntry in screenEntries){
-			
-			availableScreen[screenEntries.Key]
+			availableScreen[screenEntry.Key] = screenEntry.Screen;
 
 		}
    

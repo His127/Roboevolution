@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="UpgradeTree" format=3 uid="uid://clnjh4hrn1s72"]
+
+[ext_resource type="Script" uid="uid://dddnqf3yx4qax" path="res://resource/resourceScripts/UpgradeTree.cs" id="1_r01l8"]
+
+[resource]
+script = ExtResource("1_r01l8")
+Variables = "roboSpeed,
+//Test
+roboHeat,
+maxWorkerNumber,
+workerEfficiency,
+workerSpeed,
+maxRobotStorage,
+repairSpeed,
+roboCollectSpeed,
+collectionAmount,
+robotInventorySize,
+productionSpeed,
+productionQuality,
+energyConsumption,
+batteryCapacity,
+energyRecovery,"
+TreeStructure = "root
+
+	RoboSpeed:Increase robot movement speed:roboSpeed,+0.05:5:10,5
+		QuickMotors:Improve robot motors further:roboSpeed,+0.03:3:30,15
+			Overdrive:Push motors beyond normal limits:roboSpeed,+0.05;roboHeat,+0.02:2:100,50
+		LightFrame:Reduce robot weight:roboSpeed,+0.02;roboHeat,-0.01:4:40,20
+
+	WorkerCapacity:Allow more workers:maxWorkerNumber,+1:5:20,10
+		BetterShelves:Build additional storage shelves:maxWorkerNumber,+1:3:50,25
+			Warehouse:Expand the warehouse:maxWorkerNumber,+2:3:100,50
+		WorkerTraining:Train workers to handle more machines:workerEfficiency,+0.05:4:60,30
+		ShiftPlanning:Improve worker organization:workerEfficiency,+0.03;workerSpeed,+0.02:3:80,40
+
+	RobotStorage:Store more robots:maxRobotStorage,+2:5:15,10
+		StorageShelves:Add another storage shelf:maxRobotStorage,+2:4:40,20
+		RepairStation:Allow robots to be repaired:repairSpeed,+0.1:3:75,25
+			AdvancedTools:Improve repair tools:repairSpeed,+0.15:3:120,60
+
+	CollectSpeed:Increase collection speed:roboCollectSpeed,+0.05:5:15,5
+		MagneticGripper:Install stronger grippers:roboCollectSpeed,+0.04:4:35,15
+			MultiGripper:Allow robots to collect multiple items:collectionAmount,+1:3:90,45
+		LargerContainer:Increase robot inventory size:robotInventorySize,+2:4:50,25
+
+	Production:Increase production efficiency:productionSpeed,+0.05:5:25,10
+		FasterMachines:Speed up production machines:productionSpeed,+0.05:4:60,25
+			Automation:Automate parts of the production:productionSpeed,+0.08;workerEfficiency,+0.03:3:150,75
+		BetterMaterials:Use more efficient materials:productionQuality,+0.05:3:70,35
+			ReinforcedParts:Improve durability of produced parts:productionQuality,+0.08;repairSpeed,+0.05:3:120,60
+
+	EnergyEfficiency:Reduce energy consumption:energyConsumption,-0.05:5:30,15
+		BetterBatteries:Improve robot batteries:batteryCapacity,+0.1:4:50,25
+			HighDensityCells:Use high-density energy cells:batteryCapacity,+0.15;energyConsumption,-0.03:3:130,65
+		EnergyRecovery:Recover energy during operation:energyRecovery,+0.05:3:100,50"
+metadata/_custom_type_script = "uid://dddnqf3yx4qax"

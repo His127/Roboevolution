@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ho5kq7ndaa8g"]
 
-[ext_resource type="Script" uid="uid://413hfxvtube6" path="res://scence/SpielButton.cs" id="1_uipno"]
+[ext_resource type="Script" uid="uid://413hfxvtube6" path="res://scripts/linked/SpielButton.cs" id="1_uipno"]
 
 [node name="TitleScreen" type="Node2D" unique_id=673000825]
 
