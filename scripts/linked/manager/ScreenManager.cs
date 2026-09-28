@@ -11,13 +11,18 @@ public partial class ScreenManager : Node{
 	private Dictionary<string, PackedScene> availableScreen = new();
 
     public override void _Ready(){
-   
    		foreach(ScreenEntry screenEntry in screenEntries){
 			availableScreen[screenEntry.Key] = screenEntry.Screen;
-
 		}
-   
+	
     }
+
+	public void SwitchScreen(string name){
+		foreach(Node node in ScreenNode.GetChildren()){
+			node.QueueFree();
+		}	
+		ScreenNode.AddChild(availableScreen[name].Instantiate().Duplicate());
+	}
 
 
 

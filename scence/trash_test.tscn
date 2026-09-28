@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://lsqt5r6ypoa6"]
+
+[ext_resource type="Texture2D" uid="uid://c8j81nqiuxeci" path="res://assets/Junk_Pile.png" id="1_tppo4"]
+[ext_resource type="Script" uid="uid://c6u4max4u3ilu" path="res://scripts/JunkPile.cs" id="2_bul1c"]
+[ext_resource type="Texture2D" uid="uid://pm0uhxomv4tl" path="res://assets/Rusty_Screw.png" id="3_s5hvk"]
+[ext_resource type="Script" uid="uid://bwdygcdofexi2" path="res://scripts/JunkDrop.cs" id="4_qytlp"]
+[ext_resource type="Texture2D" uid="uid://4tvk238swxs1" path="res://assets/Circuit_Board.png" id="5_dguka"]
+[ext_resource type="PackedScene" uid="uid://bbrvfc8ojd80c" path="res://scence/junk_pice.tscn" id="6_s5hvk"]
+
+[sub_resource type="Resource" id="Resource_ld3yj"]
+script = ExtResource("4_qytlp")
+Texture = ExtResource("3_s5hvk")
+DropChance = 100.0
+Value = "10"
+metadata/_custom_type_script = "uid://bwdygcdofexi2"
+
+[sub_resource type="Resource" id="Resource_obam0"]
+script = ExtResource("4_qytlp")
+Texture = ExtResource("5_dguka")
+DropChance = 10.0
+Value = "100"
+metadata/_custom_type_script = "uid://bwdygcdofexi2"
+
+[node name="Trash Test" type="Node2D" unique_id=967203748]
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=67447782 node_paths=PackedStringArray("label", "maxMultiplier", "progress")]
+offset_left = 530.0
+offset_top = 275.0
+offset_right = 573.0
+offset_bottom = 315.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_tppo4")
+stretch_mode = 4
+script = ExtResource("2_bul1c")
+junkDrops = Array[Object]([SubResource("Resource_ld3yj"), SubResource("Resource_obam0")])
+junkPiece = ExtResource("6_s5hvk")
+label = NodePath("../RichTextLabel")
+maxMultiplier = NodePath("../TextEdit")
+progress = NodePath("../VSlider")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2066110488]
+offset_right = 1198.0
+offset_bottom = 68.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSlider" type="VSlider" parent="." unique_id=1546694396]
+offset_left = 28.0
+offset_top = 161.0
+offset_right = 44.0
+offset_bottom = 567.0
+min_value = 0.01
+max_value = 1.0
+step = 0.01
+value = 0.01
+tick_count = 5
+ticks_on_borders = true
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1585200436]
+offset_left = 2.0
+offset_top = 117.0
+offset_right = 69.0
+offset_bottom = 151.0
+text = "100"
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="Clicked"]

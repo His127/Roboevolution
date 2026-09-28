@@ -15,6 +15,7 @@ public partial class GameManager : Node{
 		screenManager.ScreenNode = ScreenNode;
 
 
+		screenManager.SwitchScreen("Test");
 
     }
 

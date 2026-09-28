@@ -10,4 +10,7 @@ public partial class UpgradeTree : Resource
 	[Export(PropertyHint.MultilineText,"no_wrap")]
 	public string TreeStructure {get; set;}
 
+	[Export]
+	public string Title {get; set;} = "";
+
 }

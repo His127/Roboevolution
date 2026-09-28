@@ -25,10 +25,50 @@ public static class TreeParser {
         return variables;
     }
 
-    private static TreeNode createRoot(UpgradeTree tree){
+    private static TreeNode createRoot(UpgradeTree tree) {
+        TreeNode root = new() {
+            Title = tree.Title,
+            Description = "The Start of your Path",
+            Effects = [],
+            MaxLevel = 1,
+            BasePrice = 0,
+            PriceIncrease = 0,
+            MinLevelForUnlock = 0,
+            // Children = createChildren(tree)
+        };
 
-
-        return new();
+        return root;
     }
+
+    // private static TreeNode[] createChildren(UpgradeTree tree) {
+    //     string[] lines = tree.TreeStructure.Split("\n", false);
+
+    //     List<TreeNode> roots = new();
+    //     List<TreeNode> parents = new();
+
+    //     foreach(string rawLine in lines) {
+    //         if(string.IsNullOrWhiteSpace(rawLine))
+    //             continue;
+
+    //         int depth = rawLine.TakeWhile(c => c == '\t').Count();
+    //         string line = rawLine.Trim();
+
+    //         TreeNode node = ParseNode(line);
+
+    //         if(depth == 0) {
+    //             roots.Add(node);
+    //         } else {
+    //             TreeNode parent = parents[depth - 1];
+    //             parent.Children.Add(node);
+    //         }
+
+    //         if(parents.Count > depth)
+    //             parents.RemoveRange(depth, parents.Count - depth);
+
+    //         parents.Add(node);
+    //     }
+
+    //     return roots.ToArray();
+    // }
 
 }

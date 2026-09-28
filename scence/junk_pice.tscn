@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bbrvfc8ojd80c"]
+
+[ext_resource type="Script" uid="uid://d2fduwqvorego" path="res://scripts/JunkPice.cs" id="1_xg1bb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slkoe"]
+radius = 20.0
+
+[node name="JunkPice" type="CharacterBody2D" unique_id=638339873]
+collision_mask = 2
+script = ExtResource("1_xg1bb")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1734878201]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+stretch_mode = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=777343179]
+shape = SubResource("CircleShape2D_slkoe")
+
+[connection signal="mouse_entered" from="TextureButton" to="." method="Collect"]

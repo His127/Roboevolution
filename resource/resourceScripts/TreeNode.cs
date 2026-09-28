@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 [GlobalClass]
@@ -16,5 +17,5 @@ public partial class TreeNode : Resource {
 
     public int MinLevelForUnlock {get; set;} = 1;
 
-    public TreeNode[] children {get; set;}
+    public List<TreeNode> Children {get; set;} = new();
 }
