@@ -4,7 +4,7 @@ using Godot;
 [GlobalClass]
 public partial class UpgradeEffect :Resource {
 
-    public BigNumber Variable {get; set;} = new();
+    public string Variable {get; set;} = "";
 
     public BigNumber Increase {get; set;} = new();
 }
