@@ -5,6 +5,7 @@ public partial class GameManager : Node{
 	
 	public static GameManager Instance {get; private set;}
 	public ScreenManager screenManager {get; private set;}
+	public TreeManager treeManager {get; private set;}
 
 	[Export] private Node ScreenNode;
 
@@ -14,9 +15,7 @@ public partial class GameManager : Node{
 		screenManager = GetNode<ScreenManager>("ScreenManager");
 		screenManager.ScreenNode = ScreenNode;
 
-
-		screenManager.SwitchScreen("Test");
-
+		treeManager = GetNode<TreeManager>("TreeManager");
     }
 
 

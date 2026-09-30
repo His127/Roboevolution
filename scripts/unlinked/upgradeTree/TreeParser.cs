@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-public static class TreeParser {
+public class TreeParser {
     
-
-    public static TreeRoot ParseTree(UpgradeTree tree){
+    public TreeRoot ParseTree(UpgradeTree tree){
         TreeRoot treeRoot = new();
         treeRoot.Variables = loadVariables(tree);
         treeRoot.Root = createRoot(tree);
@@ -14,7 +13,7 @@ public static class TreeParser {
         return treeRoot;
     }
 
-    private static Dictionary<string, BigNumber> loadVariables(UpgradeTree tree){
+    private Dictionary<string, BigNumber> loadVariables(UpgradeTree tree){
         Dictionary<string, BigNumber> variables = new();
         string[] variableString = tree.Variables.Split(",", false);
         foreach(string variable in variableString){
@@ -29,7 +28,7 @@ public static class TreeParser {
         return variables;
     }
 
-    private static TreeNode createRoot(UpgradeTree tree) {
+    private TreeNode createRoot(UpgradeTree tree) {
         TreeNode root = new() {
             Title = tree.Title,
             Description = "The Start of your Path",
@@ -44,7 +43,7 @@ public static class TreeParser {
         return root;
     }
 
-    private static TreeNode[] createChildren(UpgradeTree tree) {
+    private TreeNode[] createChildren(UpgradeTree tree) {
         string[] lines = tree.TreeStructure.Split("\n", false);
 
         List<TreeNode> children = new();
@@ -72,15 +71,17 @@ public static class TreeParser {
 
             TreeNode node = ParseNode(line);
 
+            // Remove parents that are no longer relevant.
+            while(parents.Count >= depth) {
+                parents.RemoveAt(parents.Count - 1);
+            }
+
             if(depth == 1) {
                 children.Add(node);
             } else {
                 TreeNode parent = parents[depth - 2];
                 parent.Children.Add(node);
             }
-
-            if(parents.Count > depth - 1)
-                parents.RemoveRange(depth - 1, parents.Count - (depth - 1));
 
             parents.Add(node);
         }
@@ -91,7 +92,7 @@ public static class TreeParser {
         return children.ToArray();
     }
 
-    private static TreeNode ParseNode(string line){
+    private TreeNode ParseNode(string line){
         TreeNode node;
         string[] arguments = line.Split(":", false);
         if(arguments.Length < 6)
@@ -112,7 +113,7 @@ public static class TreeParser {
         return node;
     }
 
-    private static UpgradeEffect[] createUpgradeEffects(string effects){
+    private UpgradeEffect[] createUpgradeEffects(string effects){
         List<UpgradeEffect> upgrades = new();
         string[] arguments = effects.Split(";", false);
         foreach(string s in arguments){
@@ -125,7 +126,7 @@ public static class TreeParser {
         return upgrades.ToArray();
     }
 
-    private static void PrintTree(TreeNode node, int depth = 0) {
+    private void PrintTree(TreeNode node, int depth = 0) {
         GD.Print($"{new string('\t', depth)}{node.Title}");
 
         foreach(TreeNode child in node.Children) {

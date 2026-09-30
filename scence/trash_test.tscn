@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://lsqt5r6ypoa6"]
 
+[ext_resource type="Script" uid="uid://c7j6vmk3ahke0" path="res://scripts/linked/TEMP.cs" id="1_igvym"]
 [ext_resource type="Texture2D" uid="uid://c8j81nqiuxeci" path="res://assets/Junk_Pile.png" id="1_tppo4"]
 [ext_resource type="Script" uid="uid://c6u4max4u3ilu" path="res://scripts/JunkPile.cs" id="2_bul1c"]
 [ext_resource type="Texture2D" uid="uid://pm0uhxomv4tl" path="res://assets/Rusty_Screw.png" id="3_s5hvk"]
@@ -22,6 +23,7 @@ Value = "100"
 metadata/_custom_type_script = "uid://bwdygcdofexi2"
 
 [node name="Trash Test" type="Node2D" unique_id=967203748]
+script = ExtResource("1_igvym")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=67447782 node_paths=PackedStringArray("label", "maxMultiplier", "progress")]
 offset_left = 530.0

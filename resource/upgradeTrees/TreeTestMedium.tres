@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="UpgradeTree" format=3 uid="uid://clnjh4hrn1s72"]
+[gd_resource type="Resource" script_class="UpgradeTree" format=3 uid="uid://m7t0bpvlj8v3"]
 
-[ext_resource type="Script" uid="uid://dddnqf3yx4qax" path="res://resource/resourceScripts/UpgradeTree.cs" id="1_r01l8"]
+[ext_resource type="Script" uid="uid://dddnqf3yx4qax" path="res://resource/resourceScripts/UpgradeTree.cs" id="1_nc1we"]
 
 [resource]
-script = ExtResource("1_r01l8")
+script = ExtResource("1_nc1we")
 Variables = "roboSpeed,
 //Test
 roboHeat,
@@ -25,149 +25,81 @@ TreeStructure = "root
 		RoboSpeed:Increase robot movement speed:roboSpeed,+0.05:5:10:5
 			QuickMotors:Improve robot motors further:roboSpeed,+0.03:3:30:15
 				Overdrive:Push motors beyond normal limits:roboSpeed,+0.05;roboHeat,+0.02:2:100:50
-					NitroBoost:Temporary speed burst:roboSpeed,+0.08;roboHeat,+0.05:1:200:100
-					CoolingInject:Inject liquid nitrogen:roboHeat,-0.04:2:150:75
 				Overclocking:Increase motor frequency:roboSpeed,+0.04;roboHeat,+0.03:3:110:55
-					VoltageTuning:Optimize voltage delivery:roboSpeed,+0.02:2:140:70
-					FrequencyCap:Raise safety frequency caps:roboSpeed,+0.03:2:160:80
 				TitaniumGears:Replace gears with titanium:roboSpeed,+0.02:4:70:35
-					PrecisionTeeth:Machined gear teeth:roboSpeed,+0.01:3:90:45
-					SyntheticLube:Reduce gear friction:roboSpeed,+0.02:3:100:50
 			LightFrame:Reduce robot weight:roboSpeed,+0.02;roboHeat,-0.01:4:40:20
 				CarbonFiber:Use lightweight carbon fiber:roboSpeed,+0.03:3:80:40
-					GrapheneChassis:Ultra-light chassis frame:roboSpeed,+0.05:2:160:80
-					HoneycombStructure:Optimize material layout:roboSpeed,+0.02:3:110:55
 				AerodynamicChassis:Sleek chassis design:roboSpeed,+0.02:3:60:30
-					WindTunnelTest:Streamline outer shell:roboSpeed,+0.02:2:90:45
-					ActiveSpoilers:Dynamic air deflectors:roboSpeed,+0.03:2:130:65
 				HollowPistons:Lighter internal components:roboSpeed,+0.01:2:35:15
-					TitaniumRods:Replace connecting rods:roboSpeed,+0.02:2:70:35
 			ServoTuning:Fine-tune motor responsiveness:roboSpeed,+0.02:3:50:25
 				DigitalEncoders:Precise position tracking:roboSpeed,+0.02:3:85:40
-					HighResSensors:Increase tick precision:roboSpeed,+0.01:2:110:55
 				AdaptiveTorque:Dynamically adjust force:roboSpeed,+0.03:2:120:60
-					SmartGripForce:Auto-adjust clamping force:roboSpeed,+0.02:2:150:75
 		CollectSpeed:Increase collection speed:roboCollectSpeed,+0.05:5:15:5
 			MagneticGripper:Install stronger grippers:roboCollectSpeed,+0.04:4:35:15
 				MultiGripper:Allow robots to collect multiple items:collectionAmount,+1:3:90:45
-					QuadClaws:Add four-finger grippers:collectionAmount,+1:2:160:80
-					FlexibleJoints:Increase reach angle:roboCollectSpeed,+0.02:2:120:60
 				PneumaticSuction:Add high-power suction caps:roboCollectSpeed,+0.03:3:75:35
-					DualPumps:Increase vacuum pressure:roboCollectSpeed,+0.03:2:110:55
-					RubberSeals:Improve seal airtightness:roboCollectSpeed,+0.02:2:90:45
 				ElectroMagnets:Variable magnetic pull:roboCollectSpeed,+0.05:2:110:55
-					Superconductors:Zero resistance magnets:roboCollectSpeed,+0.08:1:220:110
 			LargerContainer:Increase robot inventory size:robotInventorySize,+2:4:50:25
 				ExpandedBay:Add secondary storage bay:robotInventorySize,+3:3:95:45
-					ModularPacks:Attach side modules:robotInventorySize,+2:2:130:65
 				CompressionVault:Compress collected items:robotInventorySize,+4:2:140:70
-					HydraulicPress:Maximum density packing:robotInventorySize,+5:1:200:100
 			FastConveyor:Accelerate intake mechanism:roboCollectSpeed,+0.03:4:45:20
 				SortingSensors:Filter items while collecting:roboCollectSpeed,+0.02:3:70:35
-					LaserGuiding:Target items precisely:roboCollectSpeed,+0.03:2:110:55
 		RobotStorage:Store more robots:maxRobotStorage,+2:5:15:10
 			StorageShelves:Add another storage shelf:maxRobotStorage,+2:4:40:20
 				VerticalRacks:Optimize vertical space:maxRobotStorage,+3:3:80:40
-					OverheadCrane:Automated rack loading:maxRobotStorage,+4:2:140:70
 				AutomatedRetrieval:Speed up deployment:maxRobotStorage,+2:3:90:45
-					ExpressElevator:Fast level movement:maxRobotStorage,+2:2:120:60
 			RepairStation:Allow robots to be repaired:repairSpeed,+0.1:3:75:25
 				AdvancedTools:Improve repair tools:repairSpeed,+0.15:3:120:60
-					LaserWelder:Precision cutting & welding:repairSpeed,+0.1:2:160:80
 				AutoWelder:Automated chassis repair:repairSpeed,+0.2:2:160:80
-					RoboticArmAssist:Secondary repair arms:repairSpeed,+0.15:2:200:100
 				NaniteBay:Deploy repair nanites:repairSpeed,+0.25:1:220:110
-					SelfReplicating:Nanite swarm generation:repairSpeed,+0.3:1:300:150
 			DockingHub:Add automated charging docks:maxRobotStorage,+1;batteryCapacity,+0.05:3:65:30
-				WirelessCharging:Inductive charging pads:batteryCapacity,+0.08:2:100:50
 	Operations:Manage workers and production efficiency:productionSpeed,+0.02:1:0:0
 		WorkerCapacity:Allow more workers:maxWorkerNumber,+1:5:20:10
 			BetterShelves:Build additional storage shelves:maxWorkerNumber,+1:3:50:25
 				Warehouse:Expand the warehouse:maxWorkerNumber,+2:3:100:50
-					MezzanineFloor:Add extra interior floor:maxWorkerNumber,+3:2:170:85
-					UndergroundVault:Dig subterranean storage:maxWorkerNumber,+4:1:240:120
 				HighRiseStorage:Utilize ceiling space:maxWorkerNumber,+2:2:130:65
-					AutomatedStacker:High altitude stacking:maxWorkerNumber,+2:2:180:90
 			WorkerTraining:Train workers to handle more machines:workerEfficiency,+0.05:4:60:30
 				ShiftPlanning:Improve worker organization:workerEfficiency,+0.03;workerSpeed,+0.02:3:80:40
-					FlexTime:Dynamic shift scheduling:workerEfficiency,+0.02:2:110:55
-					OvertimeIncentives:Boost peak productivity:workerEfficiency,+0.04:2:150:75
 				Ergonomics:Improve workplace safety:workerEfficiency,+0.02:3:50:25
-					StandingDesks:Adjustable work stations:workerEfficiency,+0.01:2:70:35
-					AntiFatigueMats:Reduce physical strain:workerEfficiency,+0.02:2:80:40
 				Specialization:Assign dedicated roles:workerEfficiency,+0.06:2:120:60
-					MasterClasses:Advanced worker certification:workerEfficiency,+0.08:1:190:95
 			LoungeArea:Increase worker morale:workerEfficiency,+0.04:3:70:35
 				CoffeeStation:Provide refreshments:workerEfficiency,+0.02:2:40:20
-					EspressoMachine:Premium coffee blends:workerEfficiency,+0.02:2:70:35
-				RelaxationPods:Private rest chambers:workerEfficiency,+0.05:2:120:60
 		Production:Increase production efficiency:productionSpeed,+0.05:5:25:10
 			FasterMachines:Speed up production machines:productionSpeed,+0.05:4:60:25
 				Automation:Automate parts of the production:productionSpeed,+0.08;workerEfficiency,+0.03:3:150:75
-					FullCybernetics:Fully automated workflow:productionSpeed,+0.12:1:250:125
-					SensorFeedback:Real-time line balancing:productionSpeed,+0.05:2:180:90
 				RoboticArms:Install assembly arms:productionSpeed,+0.06:3:110:55
-					DualArmSystems:Two-handed precision work:productionSpeed,+0.05:2:150:75
-					HydraulicActuators:Heavy lifting capacity:productionSpeed,+0.04:2:140:70
 				AIControl:Neural network assembly:productionSpeed,+0.1:2:200:100
-					PredictiveMaintenance:Pre-empt machine breakdowns:productionSpeed,+0.05:2:230:115
 			BetterMaterials:Use more efficient materials:productionQuality,+0.05:3:70:35
 				ReinforcedParts:Improve durability of produced parts:productionQuality,+0.08;repairSpeed,+0.05:3:120:60
-					CarbonCoatings:Scratch-resistant finish:productionQuality,+0.04:2:150:75
 				SyntheticAlloys:Use advanced composites:productionQuality,+0.1:2:160:80
-					TitaniumComposite:Light and indestructible:productionQuality,+0.12:1:220:110
 			QualityControl:Inspect output items:productionQuality,+0.04:4:55:25
 				OpticalScanners:Automated vision inspection:productionQuality,+0.05:3:90:45
-					XRayInspection:Detect internal defects:productionQuality,+0.08:2:160:80
 	PowerSystem:Manage energy and power storage:energyConsumption,-0.02:1:0:0
 		EnergyEfficiency:Reduce energy consumption:energyConsumption,-0.05:5:30:15
 			BetterBatteries:Improve robot batteries:batteryCapacity,+0.1:4:50:25
 				HighDensityCells:Use high-density energy cells:batteryCapacity,+0.15;energyConsumption,-0.03:3:130:65
-					AnodeOptimization:Improve lithium flow:batteryCapacity,+0.05:2:160:80
-					CathodeCoating:Extend battery lifespan:batteryCapacity,+0.05:2:170:85
 				GrapheneMatrix:Supercapacitor tech:batteryCapacity,+0.2:2:180:90
-					FastChargeCap:Charge in seconds:batteryCapacity,+0.1:1:220:110
 				SolidStateBatteries:Next-gen safety & power:batteryCapacity,+0.25:1:250:125
 			EnergyRecovery:Recover energy during operation:energyRecovery,+0.05:3:100:50
 				KERS:Kinetic energy recovery:energyRecovery,+0.05:3:130:65
-					FlywheelStorage:Mechanical kinetic buffer:energyRecovery,+0.04:2:160:80
 				HeatRecycling:Harvest waste heat:energyRecovery,+0.04:2:110:55
-					Thermoelectrics:Convert heat directly to electricity:energyRecovery,+0.05:2:150:75
 			SmartGrid:Optimize facility power distribution:energyConsumption,-0.04:4:70:35
 				PowerCapacitors:Store peak energy surplus:batteryCapacity,+0.08:3:90:45
-					SuperCapBank:Massive surge protection:batteryCapacity,+0.1:2:140:70
 				LoadBalancing:Prevent power spikes:energyConsumption,-0.03:3:80:40
-					AIPrecursor:Anticipate load demands:energyConsumption,-0.04:2:120:60
 		SolarPanels:Generate free power:energyConsumption,-0.06:4:65:30
 			SolarRoof:Cover facility roof:energyConsumption,-0.08:3:120:60
-				PerovskiteCells:Next-gen solar efficiency:energyConsumption,-0.05:2:160:80
-				BifacialPanels:Capture reflected ground light:energyConsumption,-0.04:2:150:75
 			SunTracking:Follow sun angle:energyConsumption,-0.04:2:150:75
-				DualAxisTracker:Maximum sun exposure:energyConsumption,-0.05:1:200:100
-		Geothermal:Tap deep thermal wells:energyConsumption,-0.1:2:180:90
-			DeepDrilling:Reach hotter rock layers:energyConsumption,-0.08:2:240:120
-				SteamTurbines:High-efficiency generation:energyConsumption,-0.06:1:280:140
 	Facility:Expand structure and logistics:maxWorkerNumber,+1:1:0:0
 		Logistics:Streamline resource transport:roboSpeed,+0.02:4:40:20
 			PneumaticTubes:Rapid item delivery:roboCollectSpeed,+0.04:3:85:40
 				ExpressChutes:Direct delivery paths:roboCollectSpeed,+0.05:2:130:65
-					PressureBoost:Pneumatic acceleration:roboCollectSpeed,+0.03:2:170:85
 			ConveyorBelts:Automated line movement:productionSpeed,+0.03:3:75:35
 				HighSpeedBelts:Accelerated line flow:productionSpeed,+0.05:2:115:55
-					MagneticLevitation:Frictionless conveyors:productionSpeed,+0.08:1:200:100
-				OverheadRail:Ceiling transport system:roboCollectSpeed,+0.04:2:120:60
-					MonorailCarts:Heavy bulk transport:roboCollectSpeed,+0.05:1:170:85
 		Security:Protect facility assets:repairSpeed,+0.05:3:50:25
 			AlarmSystem:Detect early issues:repairSpeed,+0.05:3:80:40
 				AutoSuppression:Fire suppression system:repairSpeed,+0.1:2:130:65
-					GasExtinguishers:Protect electronic circuits:repairSpeed,+0.05:2:170:85
 			ReinforcedWalls:Protect sensitive machinery:productionQuality,+0.03:2:90:45
-				BlastDoors:Isolate hazardous zones:productionQuality,+0.04:2:140:70
 		Maintenance:Keep facility running smoothly:repairSpeed,+0.08:4:60:30
 			SparePartsVault:Keep extra components ready:repairSpeed,+0.1:3:95:45
-				AutomatedInventory:Instant part retrieval:repairSpeed,+0.08:2:130:65
-				3DPrintingBay:On-demand spare parts:repairSpeed,+0.12:2:180:90
-			DiagnosticSuite:Monitor machine wear:repairSpeed,+0.12:2:140:70
-				VibrationSensors:Detect mechanical fatigue:repairSpeed,+0.06:2:170:85
-				ThermalImaging:Identify overheating parts:repairSpeed,+0.08:2:190:95"
+			DiagnosticSuite:Monitor machine wear:repairSpeed,+0.12:2:140:70"
 metadata/_custom_type_script = "uid://dddnqf3yx4qax"

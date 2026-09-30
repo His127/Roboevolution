@@ -18,6 +18,7 @@ public partial class ScreenManager : Node{
     }
 
 	public void SwitchScreen(string name){
+		GD.Print($"Switched Screen to {name}");
 		foreach(Node node in ScreenNode.GetChildren()){
 			node.QueueFree();
 		}	

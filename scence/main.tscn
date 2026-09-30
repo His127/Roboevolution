@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://bfdegh3dfhd87"]
 
+[ext_resource type="Script" uid="uid://c7xsxresbtgfx" path="res://scripts/linked/Main.cs" id="1_7538n"]
 [ext_resource type="PackedScene" uid="uid://dotygdqtgtmj2" path="res://scence/game_manager.tscn" id="1_tt04m"]
-[ext_resource type="Script" uid="uid://cl06wof18h181" path="res://scripts/linked/manager/GameManager.cs" id="2_7538n"]
 
 [node name="main" type="Node2D" unique_id=1028328356]
+script = ExtResource("1_7538n")
 
 [node name="Screens" type="Node" parent="." unique_id=1422789728]
 
 [node name="GameManager" parent="." unique_id=1777119871 node_paths=PackedStringArray("ScreenNode") instance=ExtResource("1_tt04m")]
-script = ExtResource("2_7538n")
 ScreenNode = NodePath("../Screens")
