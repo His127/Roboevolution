@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bdfn026vl82kt"]
+
+[node name="Shop" type="Node2D" unique_id=144721334]
+
+[node name="Button" type="Button" parent="." unique_id=1464027578]
+offset_right = 75.0
+offset_bottom = 50.0
+text = "Shop
+"

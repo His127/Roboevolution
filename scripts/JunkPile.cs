@@ -10,15 +10,34 @@ public partial class JunkPile : TextureButton {
 	[Export]
 	RichTextLabel label;
 
+    [Export]
+    RichTextLabel lable_county;
+
+    [Export]
+    int anfangswert = 10;
+    
+    int counter;
+
 	[Export]
 	TextEdit maxMultiplier;
 	[Export]
 	VSlider progress;
 
     private RandomNumberGenerator random = new();
-	public BigNumber trashCollected = new();
+
+    public override void _Ready(){
+       
+        counter = anfangswert;
+        lable_county.Text = $"[pulse]{counter}";
+        label.Text = $"{GameManager.Instance.currencyManager.Schrott.ToDisplayFormat()} Trash Collected";
+
+    }
+
 
     public void Clicked() {
+
+        counter--;
+        if(counter <= 0){
 
         JunkDrop selected = GetRandomDrop();
 
@@ -37,6 +56,13 @@ public partial class JunkPile : TextureButton {
 		piece.trashCollected += JunkCollected;
 
         AddChild(piece);
+
+        counter = anfangswert;
+
+        }
+
+        lable_county.Text = $"[pulse]{counter}";
+
     }
 
     private JunkDrop GetRandomDrop() {
@@ -67,7 +93,7 @@ public partial class JunkPile : TextureButton {
 		multiplier *= progress.Value;
 		trashValue *= multiplier;
 
-		trashCollected += trashValue;
-		label.Text = $"{trashCollected.ToDisplayFormat()} Trash Collected";
+		GameManager.Instance.currencyManager.Schrott += trashValue;
+		label.Text = $"{GameManager.Instance.currencyManager.Schrott.ToDisplayFormat()} Trash Collected";
 	}
 }
