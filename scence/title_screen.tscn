@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://ho5kq7ndaa8g"]
 
-[ext_resource type="Script" uid="uid://413hfxvtube6" path="res://scripts/linked/SpielButton.cs" id="1_uipno"]
+[ext_resource type="Script" uid="uid://d3be7uehsu6um" path="res://scripts/linked/ScreenSwitchButton.cs" id="1_uipno"]
 
 [node name="TitleScreen" type="Node2D" unique_id=673000825]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2096021878]
 
 [node name="SpielButton" type="Button" parent="CanvasLayer" unique_id=479860154]
-offset_left = 449.0
-offset_top = 306.0
-offset_right = 615.0
-offset_bottom = 345.0
+offset_left = 517.0
+offset_top = 330.5
+offset_right = 683.0
+offset_bottom = 369.5
 text = "Spielen
 "
 script = ExtResource("1_uipno")
+nameScreen = "Test"

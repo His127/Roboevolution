@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://lcj1mb3qjtr5"]
+
+[ext_resource type="Script" uid="uid://dohycgttnn71l" path="res://scripts/linked/ShopScreen.cs" id="1_lpn2d"]
+[ext_resource type="Script" uid="uid://d3be7uehsu6um" path="res://scripts/linked/ScreenSwitchButton.cs" id="2_tq5bb"]
+
+[node name="ShopScreen" type="Node2D" unique_id=1222035485]
+script = ExtResource("1_lpn2d")
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=128438783]
+offset_right = 1152.0
+offset_bottom = 46.0
+bbcode_enabled = true
+text = " Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label" unique_id=133344462]
+layout_mode = 0
+offset_right = 1198.0
+offset_bottom = 68.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=28367674]
+offset_right = 99.0
+offset_bottom = 68.0
+text = "Return"
+script = ExtResource("2_tq5bb")
+nameScreen = "Test"
