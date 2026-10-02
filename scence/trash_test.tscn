@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://lsqt5r6ypoa6"]
 
-[ext_resource type="Script" uid="uid://c7j6vmk3ahke0" path="res://scripts/linked/TEMP.cs" id="1_igvym"]
 [ext_resource type="Texture2D" uid="uid://c8j81nqiuxeci" path="res://assets/Junk_Pile.png" id="1_tppo4"]
 [ext_resource type="Script" uid="uid://c6u4max4u3ilu" path="res://scripts/JunkPile.cs" id="2_bul1c"]
 [ext_resource type="Texture2D" uid="uid://pm0uhxomv4tl" path="res://assets/Rusty_Screw.png" id="3_s5hvk"]
 [ext_resource type="Script" uid="uid://bwdygcdofexi2" path="res://scripts/JunkDrop.cs" id="4_qytlp"]
 [ext_resource type="Texture2D" uid="uid://4tvk238swxs1" path="res://assets/Circuit_Board.png" id="5_dguka"]
 [ext_resource type="PackedScene" uid="uid://bbrvfc8ojd80c" path="res://scence/junk_pice.tscn" id="6_s5hvk"]
+[ext_resource type="PackedScene" uid="uid://b8fftm05y84sk" path="res://pop_up.tscn" id="7_igvym"]
+[ext_resource type="Script" uid="uid://d3be7uehsu6um" path="res://scripts/linked/ScreenSwitchButton.cs" id="9_sxsyw"]
 
 [sub_resource type="Resource" id="Resource_ld3yj"]
 script = ExtResource("4_qytlp")
 Texture = ExtResource("3_s5hvk")
 DropChance = 100.0
-Value = "10"
+Value = "1"
 metadata/_custom_type_script = "uid://bwdygcdofexi2"
 
 [sub_resource type="Resource" id="Resource_obam0"]
 script = ExtResource("4_qytlp")
 Texture = ExtResource("5_dguka")
 DropChance = 10.0
-Value = "100"
+Value = "5"
 metadata/_custom_type_script = "uid://bwdygcdofexi2"
 
 [node name="Trash Test" type="Node2D" unique_id=967203748]
-script = ExtResource("1_igvym")
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=67447782 node_paths=PackedStringArray("label", "maxMultiplier", "progress")]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=67447782 node_paths=PackedStringArray("label", "lable_county", "maxMultiplier", "progress")]
 offset_left = 530.0
 offset_top = 275.0
 offset_right = 573.0
@@ -37,6 +37,7 @@ script = ExtResource("2_bul1c")
 junkDrops = Array[Object]([SubResource("Resource_ld3yj"), SubResource("Resource_obam0")])
 junkPiece = ExtResource("6_s5hvk")
 label = NodePath("../RichTextLabel")
+lable_county = NodePath("../RichTextLabel2")
 maxMultiplier = NodePath("../TextEdit")
 progress = NodePath("../VSlider")
 
@@ -48,22 +49,44 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VSlider" type="VSlider" parent="." unique_id=1546694396]
-offset_left = 28.0
-offset_top = 161.0
-offset_right = 44.0
-offset_bottom = 567.0
+offset_left = -106.0
+offset_top = 162.0
+offset_right = -90.0
+offset_bottom = 568.0
 min_value = 0.01
 max_value = 1.0
 step = 0.01
 value = 0.01
 tick_count = 5
 ticks_on_borders = true
+metadata/_edit_use_anchors_ = true
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=1585200436]
-offset_left = 2.0
-offset_top = 117.0
-offset_right = 69.0
-offset_bottom = 151.0
+offset_left = -132.0
+offset_top = 118.0
+offset_right = -65.0
+offset_bottom = 152.0
 text = "100"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=2119988539]
+offset_left = 29.0
+offset_top = 222.0
+offset_right = 1154.0
+offset_bottom = 290.0
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PopUp" parent="." unique_id=1239484992 instance=ExtResource("7_igvym")]
+
+[node name="Button" type="Button" parent="." unique_id=980509008]
+offset_left = 266.0
+offset_right = 341.0
+offset_bottom = 50.0
+text = "Shop
+"
+script = ExtResource("9_sxsyw")
+nameScreen = "ShopScreen"
 
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="Clicked"]

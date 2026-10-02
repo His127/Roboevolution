@@ -6,6 +6,7 @@ public partial class GameManager : Node{
 	public static GameManager Instance {get; private set;}
 	public ScreenManager screenManager {get; private set;}
 	public TreeManager treeManager {get; private set;}
+	public CurrencyManager currencyManager {get; private set;}
 
 	[Export] private Node ScreenNode;
 
@@ -16,6 +17,8 @@ public partial class GameManager : Node{
 		screenManager.ScreenNode = ScreenNode;
 
 		treeManager = GetNode<TreeManager>("TreeManager");
+
+		currencyManager = GetNode<CurrencyManager>("CurrencyManager");
     }
 
 
