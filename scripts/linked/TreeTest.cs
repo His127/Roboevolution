@@ -10,6 +10,9 @@ public partial class TreeTest : Node
 	{
 		GameManager.Instance.treeManager.AddCanvas(canvas);
 		GameManager.Instance.treeManager.LoadTree(0);
+
+		
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

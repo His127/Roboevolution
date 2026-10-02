@@ -43,5 +43,5 @@ screenEntries = Array[Object]([SubResource("Resource_s5ajm"), SubResource("Resou
 
 [node name="TreeManager" type="Node" parent="." unique_id=1420305414]
 script = ExtResource("4_ssrxt")
-upgradeTrees = Array[Object]([ExtResource("10_n5q4e"), ExtResource("5_s7qg5"), ExtResource("8_2vj0p")])
+upgradeTrees = Array[Object]([ExtResource("5_s7qg5"), ExtResource("10_n5q4e"), ExtResource("8_2vj0p")])
 material = SubResource("ShaderMaterial_fbf4g")

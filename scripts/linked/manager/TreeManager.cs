@@ -23,6 +23,7 @@ public partial class TreeManager : Node
 	}
 
 	private void LoadTreeIntoCanvas(TreeCreator creator){
+		TreeControl treeControl = new(){};
 		Control baseControl = new(){
 			Position = new(600, 350),
 		};
@@ -30,7 +31,9 @@ public partial class TreeManager : Node
 		LoadNodes(baseControl, creator.layout.positions);
 
 		baseControl.Scale = new(0.3f, 0.3f);
-		creator.canvas.AddChild(baseControl);
+		treeControl.AddChild(baseControl);
+		creator.canvas.AddChild(treeControl);
+		treeControl.movableControl = baseControl;
 	}
 
 	private void LoadConnections(Control baseControl, List<(Vector2 start, Vector2 end)> connections){

@@ -2,7 +2,7 @@ using Godot;
 
 public class TreeCreator{
     private TreeParser treeParser = new();
-    private TreeLayoutProcessor processor = new();
+    private TreeLayoutProcessor processor = new(new());
 
     private UpgradeTree Tree;
 
