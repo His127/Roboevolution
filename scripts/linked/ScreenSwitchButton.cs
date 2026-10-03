@@ -4,22 +4,19 @@ using System;
 public partial class ScreenSwitchButton : Button
 {
     
-    [Export] string nameScreen;
+    [Export] 
+    private string ScreenName;
 
-    public override void _Ready()
-    {
-        
+    [Export]
+    private bool IsOverlay = true;
+
+    public override void _Ready() {
         Pressed += switchScreen;
-
-
     }
 
-    private void switchScreen()
-    {
-        
-        GameManager.Instance.screenManager.SwitchScreen(nameScreen);
-
-
+    private void switchScreen() {
+        if(!IsOverlay) GameManager.Instance.screenManager.SwitchScreen(ScreenName);
+        else GameManager.Instance.screenManager.ToggleOverlay(ScreenName);
     }
 
 

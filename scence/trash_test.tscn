@@ -23,7 +23,7 @@ DropChance = 10.0
 Value = "5"
 metadata/_custom_type_script = "uid://bwdygcdofexi2"
 
-[node name="Trash Test" type="Node2D" unique_id=967203748]
+[node name="Trash Test" type="Node" unique_id=213752880]
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=67447782 node_paths=PackedStringArray("label", "lable_county", "maxMultiplier", "progress")]
 offset_left = 530.0
@@ -87,6 +87,6 @@ offset_bottom = 50.0
 text = "Shop
 "
 script = ExtResource("9_sxsyw")
-nameScreen = "ShopScreen"
+ScreenName = "ShopScreen"
 
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="Clicked"]

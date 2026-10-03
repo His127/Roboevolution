@@ -26,7 +26,6 @@ public partial class PopUp : Node2D{
 		Button.SetItemText(1, $"Schrott: {GameManager.Instance.currencyManager.Schrott.ToDisplayFormat()}");
 		Button.SetItemText(2, $"R: {GameManager.Instance.currencyManager.R.ToDisplayFormat()}");
 		Button.SetItemText(3, $"E: {GameManager.Instance.currencyManager.E.ToDisplayFormat()}");
-
 	}
 
 

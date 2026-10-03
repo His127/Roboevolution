@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://dmok8bl0kasag"]
 
-[ext_resource type="Script" uid="uid://c0xsldlwnswnh" path="res://scripts/linked/TreeTest.cs" id="1_fbf4g"]
+[ext_resource type="Script" uid="uid://dbfpgv6cbn8wb" path="res://scripts/unlinked/components/BaseScreen.cs" id="1_fbf4g"]
 
-[node name="TreeTest" type="Node" unique_id=674997233 node_paths=PackedStringArray("canvas")]
+[node name="TreeTest" type="Node" unique_id=674997233]
 script = ExtResource("1_fbf4g")
-canvas = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=188274618]

@@ -10,12 +10,21 @@ public partial class TreeManager : Node
 	[Export]
 	Material material;
 
+	private Dictionary<int, TreeCreator> trees = new();
+
 	public List<CanvasLayer> canvasLayers = new();
 	// Called when the node enters the scene tree for the first time.
 	
 	public void LoadTree(int index){
+		TreeCreator creator;
+		if(!trees.ContainsKey(index)){
+			creator = TreeCreator.Create(upgradeTrees[index], canvasLayers[index]);
+			trees[index] = creator;
+		}else{
+			creator = trees[index];
+		}
+
 		GD.Print(Time.GetTimeStringFromSystem());
-		TreeCreator creator = TreeCreator.Create(upgradeTrees[index], canvasLayers[index]);
 		LoadTreeIntoCanvas(creator);
 		GD.Print(Time.GetTimeStringFromSystem());
 	}

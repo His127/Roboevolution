@@ -3,10 +3,12 @@
 [ext_resource type="Script" uid="uid://c7xsxresbtgfx" path="res://scripts/linked/Main.cs" id="1_7538n"]
 [ext_resource type="PackedScene" uid="uid://dotygdqtgtmj2" path="res://scence/game_manager.tscn" id="1_tt04m"]
 
-[node name="main" type="Node2D" unique_id=1028328356]
+[node name="main" type="Node" unique_id=28638316]
 script = ExtResource("1_7538n")
 
 [node name="Screens" type="Node" parent="." unique_id=1422789728]
+
+[node name="Overlays" type="Node" parent="Screens" unique_id=586662474]
 
 [node name="GameManager" parent="." unique_id=1777119871 node_paths=PackedStringArray("ScreenNode") instance=ExtResource("1_tt04m")]
 ScreenNode = NodePath("../Screens")

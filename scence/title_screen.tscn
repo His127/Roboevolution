@@ -10,7 +10,7 @@ unicode = 116
 [sub_resource type="Shortcut" id="Shortcut_slkoe"]
 events = [SubResource("InputEventKey_uipno")]
 
-[node name="TitleScreen" type="Node2D" unique_id=673000825]
+[node name="TitleScreen" type="Node" unique_id=1964347510]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2096021878]
 
@@ -22,7 +22,8 @@ offset_bottom = 369.5
 text = "Spielen
 "
 script = ExtResource("1_uipno")
-nameScreen = "Test"
+ScreenName = "MainScreen"
+IsOverlay = false
 
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=162195404]
 offset_left = 6.0
@@ -33,4 +34,5 @@ theme_override_colors/font_color = Color(0.88, 0, 0, 1)
 shortcut = SubResource("Shortcut_slkoe")
 text = "DANGER ZONE"
 script = ExtResource("1_uipno")
-nameScreen = "TreeTest"
+ScreenName = "TreeTest"
+IsOverlay = false
