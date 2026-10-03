@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class InitialPositionGenerator {
 
     private readonly float averagePathLength;
+    private const float MaxWedge = Mathf.Pi * 0.95f; // Sektor < 180°, sonst Garantie weg
 
     public InitialPositionGenerator(TreeLayoutSettings settings) {
         averagePathLength = settings.AveragePathLength;
@@ -11,82 +12,67 @@ public class InitialPositionGenerator {
 
     public Dictionary<TreeNode, Vector2> Generate(TreeRoot tree) {
         Dictionary<TreeNode, Vector2> positions = new();
+        Dictionary<TreeNode, int> leaves = new();
+
+        CountLeaves(tree.Root, leaves);
 
         positions[tree.Root] = Vector2.Zero;
-
-        for(int i = 0; i < tree.Root.Children.Count; i++) {
-            Vector2 direction = GetRootDirection(
-                i,
-                tree.Root.Children.Count
-            );
-
-            PlaceNode(
-                tree.Root.Children[i],
-                positions,
-                Vector2.Zero,
-                direction
-            );
-        }
+        PlaceChildren(tree.Root, 0f, Mathf.Tau, 1, leaves, positions);
 
         return positions;
     }
 
-    private void PlaceNode(
-        TreeNode node,
-        Dictionary<TreeNode, Vector2> positions,
-        Vector2 parentPosition,
-        Vector2 parentDirection
+    private int CountLeaves(TreeNode node, Dictionary<TreeNode, int> leaves) {
+        int count = 0;
+        foreach(TreeNode child in node.Children)
+            count += CountLeaves(child, leaves);
+
+        if(count == 0) count = 1;
+        leaves[node] = count;
+        return count;
+    }
+
+    private void PlaceChildren(
+        TreeNode parent,
+        float start,
+        float end,
+        int depth,
+        Dictionary<TreeNode, int> leaves,
+        Dictionary<TreeNode, Vector2> positions
     ) {
-        Vector2 position =
-            parentPosition + parentDirection * averagePathLength;
+        if(parent.Children.Count == 0)
+            return;
 
-        positions[node] = position;
+        // depth == 1 bedeutet: parent ist die Wurzel.
+        // Die Wurzel darf den vollen Kreis nutzen, wenn sie mehrere Kinder hat.
+        bool isRoot = depth == 1;
+        float maxWedge =
+            isRoot && parent.Children.Count > 1
+                ? Mathf.Tau
+                : Mathf.Pi;
 
-        for(int i = 0; i < node.Children.Count; i++) {
-            Vector2 direction = GetChildDirection(
-                parentDirection,
-                i,
-                node.Children.Count
-            );
-
-            PlaceNode(
-                node.Children[i],
-                positions,
-                position,
-                direction
-            );
+        float width = end - start;
+        if(width > maxWedge) {
+            float center = (start + end) / 2f;
+            start = center - maxWedge / 2f;
+            end = center + maxWedge / 2f;
+            width = maxWedge;
         }
-    }
 
-    private Vector2 GetRootDirection(int index, int childCount) {
-        if(childCount == 0)
-            return Vector2.Right;
+        float total = leaves[parent];
+        float angle = start;
 
-        float angle = Mathf.Tau * index / childCount;
+        foreach(TreeNode child in parent.Children) {
+            float share = width * leaves[child] / total;
+            float mid = angle + share / 2f;
 
-        return Vector2.FromAngle(angle);
-    }
+            positions[child] =
+                Vector2.FromAngle(mid) * depth * averagePathLength;
 
-    private Vector2 GetChildDirection(
-        Vector2 parentDirection,
-        int index,
-        int childCount
-    ) {
-        if(childCount == 0)
-            return parentDirection;
+            PlaceChildren(child, angle, angle + share,
+                depth + 1, leaves, positions);
 
-        if(childCount == 1)
-            return parentDirection;
-
-        float parentAngle = parentDirection.Angle();
-
-        float spread = Mathf.Pi / 2f;
-
-        float angle =
-            parentAngle
-            - spread / 2f
-            + spread * index / (childCount - 1);
-
-        return Vector2.FromAngle(angle);
+            angle += share;
+        }
     }
 }

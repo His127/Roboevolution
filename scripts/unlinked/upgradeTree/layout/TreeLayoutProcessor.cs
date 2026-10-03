@@ -24,13 +24,13 @@ public class TreeLayoutProcessor {
             positions
         );
 
-        LayoutCollisionResolver collisionResolver =
-            new(settings);
+        // LayoutCollisionResolver collisionResolver =
+        //     new(settings);
 
-        collisionResolver.Resolve(
-            tree,
-            positions
-        );
+        // collisionResolver.Resolve(
+        //     tree,
+        //     positions
+        // );
 
         TreeLayoutConnectionGenerator connectionGenerator =
             new();

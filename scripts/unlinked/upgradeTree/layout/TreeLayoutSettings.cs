@@ -7,7 +7,7 @@ public class TreeLayoutSettings {
     public float AveragePathLength { get; set; } = 150f;
     public float NodePathClearance { get; set; } = 30f;
 
-    public int SimulationIterations { get; set; } = 500;
+    public int SimulationIterations { get; set; } = 50;
 
     public float AttractionStrength { get; set; } = 1f;
     public float RepulsionStrength { get; set; } = 1f;

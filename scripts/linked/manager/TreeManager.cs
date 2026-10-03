@@ -14,8 +14,10 @@ public partial class TreeManager : Node
 	// Called when the node enters the scene tree for the first time.
 	
 	public void LoadTree(int index){
+		GD.Print(Time.GetTimeStringFromSystem());
 		TreeCreator creator = TreeCreator.Create(upgradeTrees[index], canvasLayers[index]);
 		LoadTreeIntoCanvas(creator);
+		GD.Print(Time.GetTimeStringFromSystem());
 	}
 
 	public void AddCanvas(CanvasLayer canvas){

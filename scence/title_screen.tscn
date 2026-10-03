@@ -2,6 +2,14 @@
 
 [ext_resource type="Script" uid="uid://d3be7uehsu6um" path="res://scripts/linked/ScreenSwitchButton.cs" id="1_uipno"]
 
+[sub_resource type="InputEventKey" id="InputEventKey_uipno"]
+device = -1
+keycode = 84
+unicode = 116
+
+[sub_resource type="Shortcut" id="Shortcut_slkoe"]
+events = [SubResource("InputEventKey_uipno")]
+
 [node name="TitleScreen" type="Node2D" unique_id=673000825]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2096021878]
@@ -15,3 +23,14 @@ text = "Spielen
 "
 script = ExtResource("1_uipno")
 nameScreen = "Test"
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=162195404]
+offset_left = 6.0
+offset_top = 681.0
+offset_right = 128.0
+offset_bottom = 712.0
+theme_override_colors/font_color = Color(0.88, 0, 0, 1)
+shortcut = SubResource("Shortcut_slkoe")
+text = "DANGER ZONE"
+script = ExtResource("1_uipno")
+nameScreen = "TreeTest"

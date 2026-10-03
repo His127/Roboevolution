@@ -6,10 +6,13 @@
 [ext_resource type="Script" uid="uid://cmd1yn2sttfg3" path="res://resource/resourceScripts/ScreenEntry.cs" id="3_s7qg5"]
 [ext_resource type="PackedScene" uid="uid://lsqt5r6ypoa6" path="res://scence/trash_test.tscn" id="4_cjdpd"]
 [ext_resource type="Script" uid="uid://de26yrojjhjo1" path="res://scripts/linked/manager/TreeManager.cs" id="4_ssrxt"]
-[ext_resource type="Resource" uid="uid://clnjh4hrn1s72" path="res://resource/upgradeTrees/TestTree.tres" id="5_s7qg5"]
+[ext_resource type="Resource" uid="uid://clnjh4hrn1s72" path="res://resource/upgradeTrees/TestTreeLarge.tres" id="5_s7qg5"]
 [ext_resource type="PackedScene" uid="uid://dmok8bl0kasag" path="res://scence/tree_test.tscn" id="6_seyvp"]
 [ext_resource type="PackedScene" uid="uid://lcj1mb3qjtr5" path="res://scence/shop_screen.tscn" id="7_n5q4e"]
 [ext_resource type="Resource" uid="uid://dja0hwfkdlldh" path="res://resource/upgradeTrees/TreeTestSmall.tres" id="8_2vj0p"]
+[ext_resource type="Resource" uid="uid://n7cupe353ij1" path="res://resource/upgradeTrees/TreeTestExtreme.tres" id="9_18iop"]
+[ext_resource type="Resource" uid="uid://cikigdmp6a784" path="res://resource/upgradeTrees/TreeTestUltimate.tres" id="9_hq1pa"]
+[ext_resource type="Shader" uid="uid://cxvdln7eoqak4" path="res://resource/shaders/Circular.gdshader" id="9_so1yj"]
 [ext_resource type="Resource" uid="uid://m7t0bpvlj8v3" path="res://resource/upgradeTrees/TreeTestMedium.tres" id="10_n5q4e"]
 [ext_resource type="Script" uid="uid://bmht6g183b0ph" path="res://scripts/linked/manager/CurrencyManager.cs" id="11_2vj0p"]
 
@@ -37,6 +40,10 @@ Key = "ShopScreen"
 Screen = ExtResource("7_n5q4e")
 metadata/_custom_type_script = "uid://cmd1yn2sttfg3"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_21f1t"]
+shader = ExtResource("9_so1yj")
+shader_parameter/radius = 0.5000000074506
+
 [node name="GameManager" type="Node" unique_id=1777119871]
 script = ExtResource("1_xyfes")
 
@@ -46,7 +53,8 @@ screenEntries = Array[Object]([SubResource("Resource_s5ajm"), SubResource("Resou
 
 [node name="TreeManager" type="Node" parent="." unique_id=1420305414]
 script = ExtResource("4_ssrxt")
-upgradeTrees = Array[Object]([ExtResource("5_s7qg5"), ExtResource("10_n5q4e"), ExtResource("8_2vj0p")])
+upgradeTrees = Array[Object]([ExtResource("9_hq1pa"), ExtResource("9_18iop"), ExtResource("5_s7qg5"), ExtResource("10_n5q4e"), ExtResource("8_2vj0p")])
+material = SubResource("ShaderMaterial_21f1t")
 
 [node name="CurrencyManager" type="Node" parent="." unique_id=570563869]
 script = ExtResource("11_2vj0p")
