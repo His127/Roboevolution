@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ho5kq7ndaa8g"]
 
 [ext_resource type="Script" uid="uid://d3be7uehsu6um" path="res://scripts/linked/ScreenSwitchButton.cs" id="1_uipno"]
+[ext_resource type="Shader" uid="uid://defave3sujbik" path="res://resource/shaders/LineShader.gdshader" id="2_ecoub"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_uipno"]
 device = -1
@@ -9,6 +10,18 @@ unicode = 116
 
 [sub_resource type="Shortcut" id="Shortcut_slkoe"]
 events = [SubResource("InputEventKey_uipno")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_slkoe"]
+shader = ExtResource("2_ecoub")
+shader_parameter/start_position = Vector2(270, 469)
+shader_parameter/end_position = Vector2(8, 351)
+shader_parameter/wobble_strength = 5.0
+shader_parameter/wobble_speed = 3.0
+shader_parameter/wobble_frequency = 0.02
+shader_parameter/travel_time = 5.0
+shader_parameter/base_color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+shader_parameter/progress_color = Color(1, 1, 1, 0.03)
+shader_parameter/animation_offset = 0.0
 
 [node name="TitleScreen" type="Node" unique_id=1964347510]
 
@@ -36,3 +49,8 @@ text = "DANGER ZONE"
 script = ExtResource("1_uipno")
 ScreenName = "TreeTest"
 IsOverlay = false
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer" unique_id=1401111611]
+material = SubResource("ShaderMaterial_slkoe")
+points = PackedVector2Array(270, 469, 8, 351)
+default_color = Color(0.29586652, 0.2958665, 0.2958665, 1)

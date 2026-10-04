@@ -8,14 +8,24 @@ public partial class TreeManager : Node
 	UpgradeTree[] upgradeTrees;
 
 	[Export]
-	Material material;
+	ShaderMaterial NodeMaterial;
+
+	[Export]
+	ShaderMaterial LineMaterial;
+
+	[Export]
+	PackedScene NodeScene;
+
 
 	private Dictionary<int, TreeCreator> trees = new();
+
+	private RandomNumberGenerator random = new();
 
 	public List<CanvasLayer> canvasLayers = new();
 	// Called when the node enters the scene tree for the first time.
 	
 	public void LoadTree(int index){
+		GD.Print(Time.GetTimeStringFromSystem());
 		TreeCreator creator;
 		if(!trees.ContainsKey(index)){
 			creator = TreeCreator.Create(upgradeTrees[index], canvasLayers[index]);
@@ -24,7 +34,6 @@ public partial class TreeManager : Node
 			creator = trees[index];
 		}
 
-		GD.Print(Time.GetTimeStringFromSystem());
 		LoadTreeIntoCanvas(creator);
 		GD.Print(Time.GetTimeStringFromSystem());
 	}
@@ -34,9 +43,12 @@ public partial class TreeManager : Node
 	}
 
 	private void LoadTreeIntoCanvas(TreeCreator creator){
-		TreeControl treeControl = new(){};
+		TreeControl treeControl = new(){
+			MouseFilter = Control.MouseFilterEnum.Pass
+		};
 		Control baseControl = new(){
 			Position = new(600, 350),
+			MouseFilter = Control.MouseFilterEnum.Pass
 		};
 		LoadConnections(baseControl, creator.layout.connections);
 		LoadNodes(baseControl, creator.layout.positions);
@@ -56,6 +68,16 @@ public partial class TreeManager : Node
 				BeginCapMode = Line2D.LineCapMode.Round,
 				EndCapMode = Line2D.LineCapMode.Round
 			};
+
+			ShaderMaterial material = LineMaterial.Duplicate() as ShaderMaterial;
+
+			material.SetShaderParameter("start_position", start);
+			material.SetShaderParameter("end_position", end);
+			material.SetShaderParameter("animation_offset", random.RandfRange(0f, 5f));
+			material.SetShaderParameter("travel_time", random.RandfRange(10f, 20f));
+
+			line.Material = material;
+
 			Lines.AddChild(line);
 		}
 		baseControl.AddChild(Lines);
@@ -63,14 +85,17 @@ public partial class TreeManager : Node
 
 	private void LoadNodes(Control baseControl, Dictionary<TreeNode, Vector2> positions){
 		Node2D nodes = new();
-		foreach(Vector2 vec in positions.Values){
-			nodes.AddChild(new ColorRect(){
-				Color = Colors.Red,
-				Size = new(30,30),
-				Material = material,
-				Position = vec - new Vector2(15, 15),
-			});
+
+		foreach((TreeNode node, Vector2 position) in positions){
+			// GD.Print($"{node.Title}: {node.Effects.Length} effects");
+			UpgradeTreeNode scene = NodeScene.Instantiate<UpgradeTreeNode>();
+
+			scene.Position = position;
+			scene.node = node;
+
+			nodes.AddChild(scene);
 		}
+
 		baseControl.AddChild(nodes);
 	}
 }

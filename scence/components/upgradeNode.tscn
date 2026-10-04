@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cc3ljox1jhuhy"]
+
+[ext_resource type="Script" uid="uid://dkorryclk6kvg" path="res://scripts/linked/components/UpgradeTreeNode.cs" id="1_qyroc"]
+[ext_resource type="Texture2D" uid="uid://cy7g5mjaujium" path="res://assets/upgradeTree/Insides/UpgradeNodeInside.png" id="2_lhla7"]
+[ext_resource type="Texture2D" uid="uid://dnko0wg0qdht6" path="res://assets/upgradeTree/UpgradeNodeFrame.png" id="3_jlket"]
+[ext_resource type="Texture2D" uid="uid://d0svwxxpgy33l" path="res://assets/upgradeTree/BlackBox.png" id="4_lhla7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_slkoe"]
+radius = 23.0
+
+[node name="Node" type="Node2D" unique_id=1299412642 node_paths=PackedStringArray("area", "rect", "insideSprite")]
+script = ExtResource("1_qyroc")
+area = NodePath("Area2D")
+rect = NodePath("Background")
+FallbackTexture = ExtResource("2_lhla7")
+insideSprite = NodePath("Inside")
+
+[node name="Inside" type="Sprite2D" parent="." unique_id=1224924948]
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("2_lhla7")
+
+[node name="Frame" type="Sprite2D" parent="." unique_id=102766808]
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("3_jlket")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=203449169]
+z_index = 1
+offset_left = -84.0
+offset_top = -92.0
+offset_right = 84.0
+offset_bottom = -15.0
+texture = ExtResource("4_lhla7")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background" unique_id=1001442041]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 165.0
+offset_bottom = 71.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]{title}
+{description}
+{effect}
+{effect}"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1934694878]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1292468324]
+shape = SubResource("CircleShape2D_slkoe")

@@ -7,4 +7,6 @@ public partial class UpgradeEffect :Resource {
     public string Variable {get; set;} = "";
 
     public BigNumber Increase {get; set;} = new();
+
+    public Texture2D Texture {get; set;}
 }

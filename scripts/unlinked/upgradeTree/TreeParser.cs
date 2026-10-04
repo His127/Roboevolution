@@ -5,28 +5,33 @@ using Godot;
 
 public class TreeParser {
     
+    private UpgradeTree tree;
+
     public TreeRoot ParseTree(UpgradeTree tree){
-        TreeRoot treeRoot = new();
-        treeRoot.Variables = loadVariables(tree);
-        treeRoot.Root = createRoot(tree);
+        this.tree = tree;
+        TreeRoot treeRoot = new() {
+            // treeRoot.Variables = loadVariables(tree);
+            Variables = tree.Variables,
+            Root = createRoot(tree)
+        };
         // PrintTree(treeRoot.Root);
         return treeRoot;
     }
 
-    private Dictionary<string, BigNumber> loadVariables(UpgradeTree tree){
-        Dictionary<string, BigNumber> variables = new();
-        string[] variableString = tree.Variables.Split(",", false);
-        foreach(string variable in variableString){
-            string name = variable.Trim();
-            if(name.StartsWith("//")){
-                string[] commentEnd = name.Split("\n");
-                name = commentEnd[1];
-            } 
-            variables[name] = new();
-            // GD.Print($"Stored Variable: {name}");
-        }
-        return variables;
-    }
+    // private Dictionary<string, BigNumber> loadVariables(UpgradeTree tree){
+    //     Dictionary<string, BigNumber> variables = new();
+    //     string[] variableString = tree.Variables.Split(",", false);
+    //     foreach(string variable in variableString){
+    //         string name = variable.Trim();
+    //         if(name.StartsWith("//")){
+    //             string[] commentEnd = name.Split("\n");
+    //             name = commentEnd[1];
+    //         } 
+    //         variables[name] = new();
+    //         // GD.Print($"Stored Variable: {name}");
+    //     }
+    //     return variables;
+    // }
 
     private TreeNode createRoot(UpgradeTree tree) {
         TreeNode root = new() {
@@ -120,7 +125,8 @@ public class TreeParser {
             string[] parts = s.Split(",", false);
             upgrades.Add(new(){
                 Variable = parts[0],
-                Increase = BigNumber.Parse(parts[1])
+                Increase = BigNumber.Parse(parts[1]),
+                Texture = getTextureByVariableName(parts[0])
             });
         }
         return upgrades.ToArray();
@@ -132,6 +138,16 @@ public class TreeParser {
         foreach(TreeNode child in node.Children) {
             PrintTree(child, depth + 1);
         }
+    }
+
+    private Texture2D getTextureByVariableName(string name){
+        foreach(TreeVariable variable in tree.Variables){
+            if(variable.VariableName == name){
+                return variable.VariableNodeInside;
+            }
+        }
+        GD.PushError($"Unknown Variable Name: \"{name}\"");
+        return null;
     }
 
 }

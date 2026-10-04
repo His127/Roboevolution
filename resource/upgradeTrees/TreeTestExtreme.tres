@@ -4,22 +4,7 @@
 
 [resource]
 script = ExtResource("1_2jrdw")
-Variables = "roboSpeed,
-//Test
-roboHeat,
-maxWorkerNumber,
-workerEfficiency,
-workerSpeed,
-maxRobotStorage,
-repairSpeed,
-roboCollectSpeed,
-collectionAmount,
-robotInventorySize,
-productionSpeed,
-productionQuality,
-energyConsumption,
-batteryCapacity,
-energyRecovery,"
+Variables = Array[Object]([])
 TreeStructure = "root
 	Operations:Manage workers and production efficiency:maxWorkerNumber,+1:1:0:0
 		EfficientAlloys:Increase production quality:productionQuality,+0.08;productionSpeed,+0.04:3:15:10
