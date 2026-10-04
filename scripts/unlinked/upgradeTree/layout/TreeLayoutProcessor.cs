@@ -35,7 +35,7 @@ public class TreeLayoutProcessor {
         TreeLayoutConnectionGenerator connectionGenerator =
             new();
 
-        List<(Vector2 start, Vector2 end)> connections =
+        List<(TreeNode parent, TreeNode child, Vector2 start, Vector2 end)> connections =
             connectionGenerator.Generate(
                 tree,
                 positions

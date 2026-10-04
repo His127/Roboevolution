@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dkorryclk6kvg" path="res://scripts/linked/components/UpgradeTreeNode.cs" id="1_qyroc"]
 [ext_resource type="Texture2D" uid="uid://cy7g5mjaujium" path="res://assets/upgradeTree/Insides/UpgradeNodeInside.png" id="2_lhla7"]
+[ext_resource type="Shader" uid="uid://bdmyk3t8yf0g0" path="res://resource/shaders/Shadow.gdshader" id="3_gusst"]
 [ext_resource type="Texture2D" uid="uid://dnko0wg0qdht6" path="res://assets/upgradeTree/UpgradeNodeFrame.png" id="3_jlket"]
 [ext_resource type="Texture2D" uid="uid://d0svwxxpgy33l" path="res://assets/upgradeTree/BlackBox.png" id="4_lhla7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yiui5"]
+shader = ExtResource("3_gusst")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slkoe"]
 radius = 23.0
@@ -14,12 +18,15 @@ area = NodePath("Area2D")
 rect = NodePath("Background")
 FallbackTexture = ExtResource("2_lhla7")
 insideSprite = NodePath("Inside")
+ShadowShader = SubResource("ShaderMaterial_yiui5")
 
 [node name="Inside" type="Sprite2D" parent="." unique_id=1224924948]
+use_parent_material = true
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("2_lhla7")
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=102766808]
+use_parent_material = true
 scale = Vector2(0.195, 0.195)
 texture = ExtResource("3_jlket")
 

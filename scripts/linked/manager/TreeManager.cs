@@ -59,15 +59,15 @@ public partial class TreeManager : Node
 		treeControl.movableControl = baseControl;
 	}
 
-	private void LoadConnections(Control baseControl, List<(Vector2 start, Vector2 end)> connections){
+	private void LoadConnections(Control baseControl, List<(TreeNode parent, TreeNode child, Vector2 start, Vector2 end)> connections){
 		Node2D Lines = new();
-		foreach((Vector2 start, Vector2 end) in connections){
-			Line2D line = new(){
-				Points = [start, end],
-				DefaultColor = Colors.White,
+		foreach((TreeNode parent, TreeNode child, Vector2 start, Vector2 end) in connections){
+			UpgradeTreeConnection line = new(){
 				BeginCapMode = Line2D.LineCapMode.Round,
 				EndCapMode = Line2D.LineCapMode.Round
 			};
+
+			line.Setup(parent, child, start, end);
 
 			ShaderMaterial material = LineMaterial.Duplicate() as ShaderMaterial;
 

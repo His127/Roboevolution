@@ -1,111 +1,111 @@
 [gd_resource type="Resource" script_class="UpgradeTree" format=3 uid="uid://clnjh4hrn1s72"]
 
-[ext_resource type="Texture2D" uid="uid://cw1tlsrq1srv8" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideSpeed.png" id="1_e55fc"]
+[ext_resource type="Texture2D" uid="uid://cw1tlsrq1srv8" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideSpeed.png" id="1_2qs3y"]
 [ext_resource type="Script" uid="uid://mtu223fu7ogw" path="res://resource/resourceScripts/TreeVariable.cs" id="1_gtlh5"]
 [ext_resource type="Script" uid="uid://dddnqf3yx4qax" path="res://resource/resourceScripts/UpgradeTree.cs" id="1_r01l8"]
-[ext_resource type="Texture2D" uid="uid://dgd5knrai1wt6" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideHeat.png" id="3_juofe"]
-[ext_resource type="Texture2D" uid="uid://dp8ewgvmgra0v" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideMaxWorker.png" id="4_bg4gk"]
-[ext_resource type="Texture2D" uid="uid://c0gmuyla7virs" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideWorkerEfficiency.png" id="5_anjpi"]
-[ext_resource type="Texture2D" uid="uid://def15gvytpfad" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideWorkerSpeed.png" id="6_0183c"]
-[ext_resource type="Texture2D" uid="uid://bnjx6v6qkjkmc" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideMaxRoboStorage.png" id="7_muhot"]
-[ext_resource type="Texture2D" uid="uid://dslxshiemhyou" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideRapirSpeed.png" id="8_bg4gk"]
-[ext_resource type="Texture2D" uid="uid://dhh6ntjfufiia" path="res://assets/upgradeTree/Insides/UpgradeNodeInsidePickUpSpeed.png" id="9_anjpi"]
-[ext_resource type="Texture2D" uid="uid://c5r5iiyahwlpk" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideCollectionAmount.png" id="10_anjpi"]
-[ext_resource type="Texture2D" uid="uid://bacnnaoptxdat" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideInventorySize.png" id="11_0183c"]
-[ext_resource type="Texture2D" uid="uid://bqodriso2te8f" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideProductionSpeed.png" id="12_0gubk"]
-[ext_resource type="Texture2D" uid="uid://b4tfxefdih7ch" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideProductionQuality.png" id="13_2qs3y"]
-[ext_resource type="Texture2D" uid="uid://bmvie2omku8sj" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideEnergyConsumption.png" id="14_h5p7l"]
-[ext_resource type="Texture2D" uid="uid://cj6fx654e6ts7" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideBattierieCapacity.png" id="15_elava"]
-[ext_resource type="Texture2D" uid="uid://bqe52a8kmup0g" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideEnergyRecovery.png" id="16_2qs3y"]
+[ext_resource type="Texture2D" uid="uid://dgd5knrai1wt6" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideHeat.png" id="3_h5p7l"]
+[ext_resource type="Texture2D" uid="uid://dp8ewgvmgra0v" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideMaxWorker.png" id="4_elava"]
+[ext_resource type="Texture2D" uid="uid://c0gmuyla7virs" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideWorkerEfficiency.png" id="5_dhu1w"]
+[ext_resource type="Texture2D" uid="uid://def15gvytpfad" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideWorkerSpeed.png" id="6_6kelf"]
+[ext_resource type="Texture2D" uid="uid://bnjx6v6qkjkmc" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideMaxRoboStorage.png" id="7_i08bo"]
+[ext_resource type="Texture2D" uid="uid://dslxshiemhyou" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideRapirSpeed.png" id="8_momlu"]
+[ext_resource type="Texture2D" uid="uid://dhh6ntjfufiia" path="res://assets/upgradeTree/Insides/UpgradeNodeInsidePickUpSpeed.png" id="9_m5uus"]
+[ext_resource type="Texture2D" uid="uid://c5r5iiyahwlpk" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideCollectionAmount.png" id="10_35jt8"]
+[ext_resource type="Texture2D" uid="uid://bacnnaoptxdat" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideInventorySize.png" id="11_8d5s2"]
+[ext_resource type="Texture2D" uid="uid://bqodriso2te8f" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideProductionSpeed.png" id="12_o2j7i"]
+[ext_resource type="Texture2D" uid="uid://b4tfxefdih7ch" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideProductionQuality.png" id="13_h8fhh"]
+[ext_resource type="Texture2D" uid="uid://bmvie2omku8sj" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideEnergyConsumption.png" id="14_naw3j"]
+[ext_resource type="Texture2D" uid="uid://cj6fx654e6ts7" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideBattierieCapacity.png" id="15_b7qsn"]
+[ext_resource type="Texture2D" uid="uid://bqe52a8kmup0g" path="res://assets/upgradeTree/Insides/UpgradeNodeInsideEnergyRecovery.png" id="16_ujpvp"]
 
 [sub_resource type="Resource" id="Resource_qyroc"]
 script = ExtResource("1_gtlh5")
 VariableName = "roboSpeed"
-VariableNodeInside = ExtResource("1_e55fc")
+VariableNodeInside = ExtResource("1_2qs3y")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_2jrdw"]
 script = ExtResource("1_gtlh5")
 VariableName = "roboHeat"
-VariableNodeInside = ExtResource("3_juofe")
+VariableNodeInside = ExtResource("3_h5p7l")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_uqomo"]
 script = ExtResource("1_gtlh5")
 VariableName = "maxWorkerNumber"
-VariableNodeInside = ExtResource("4_bg4gk")
+VariableNodeInside = ExtResource("4_elava")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_u0bhr"]
 script = ExtResource("1_gtlh5")
 VariableName = "workerEfficiency"
-VariableNodeInside = ExtResource("5_anjpi")
+VariableNodeInside = ExtResource("5_dhu1w")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_spbcp"]
 script = ExtResource("1_gtlh5")
 VariableName = "workerSpeed"
-VariableNodeInside = ExtResource("6_0183c")
+VariableNodeInside = ExtResource("6_6kelf")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_ul15c"]
 script = ExtResource("1_gtlh5")
 VariableName = "maxRobotStorage"
-VariableNodeInside = ExtResource("7_muhot")
+VariableNodeInside = ExtResource("7_i08bo")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_0sh2f"]
 script = ExtResource("1_gtlh5")
 VariableName = "repairSpeed"
-VariableNodeInside = ExtResource("8_bg4gk")
+VariableNodeInside = ExtResource("8_momlu")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_hm3by"]
 script = ExtResource("1_gtlh5")
 VariableName = "roboCollectSpeed"
-VariableNodeInside = ExtResource("9_anjpi")
+VariableNodeInside = ExtResource("9_m5uus")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_jtiht"]
 script = ExtResource("1_gtlh5")
 VariableName = "collectionAmount"
-VariableNodeInside = ExtResource("10_anjpi")
+VariableNodeInside = ExtResource("10_35jt8")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_0183c"]
 script = ExtResource("1_gtlh5")
 VariableName = "robotInventorySize"
-VariableNodeInside = ExtResource("11_0183c")
+VariableNodeInside = ExtResource("11_8d5s2")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_muhot"]
 script = ExtResource("1_gtlh5")
 VariableName = "productionSpeed"
-VariableNodeInside = ExtResource("12_0gubk")
+VariableNodeInside = ExtResource("12_o2j7i")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_dhu1w"]
 script = ExtResource("1_gtlh5")
 VariableName = "productionQuality"
-VariableNodeInside = ExtResource("13_2qs3y")
+VariableNodeInside = ExtResource("13_h8fhh")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_6kelf"]
 script = ExtResource("1_gtlh5")
 VariableName = "energyConsumption"
-VariableNodeInside = ExtResource("14_h5p7l")
+VariableNodeInside = ExtResource("14_naw3j")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_0gubk"]
 script = ExtResource("1_gtlh5")
 VariableName = "batteryCapacity"
-VariableNodeInside = ExtResource("15_elava")
+VariableNodeInside = ExtResource("15_b7qsn")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [sub_resource type="Resource" id="Resource_2qs3y"]
 script = ExtResource("1_gtlh5")
 VariableName = "energyRecovery"
-VariableNodeInside = ExtResource("16_2qs3y")
+VariableNodeInside = ExtResource("16_ujpvp")
 metadata/_custom_type_script = "uid://mtu223fu7ogw"
 
 [resource]
@@ -113,8 +113,8 @@ script = ExtResource("1_r01l8")
 Variables = Array[Object]([SubResource("Resource_qyroc"), SubResource("Resource_2jrdw"), SubResource("Resource_uqomo"), SubResource("Resource_u0bhr"), SubResource("Resource_spbcp"), SubResource("Resource_ul15c"), SubResource("Resource_0sh2f"), SubResource("Resource_hm3by"), SubResource("Resource_jtiht"), SubResource("Resource_0183c"), SubResource("Resource_muhot"), SubResource("Resource_dhu1w"), SubResource("Resource_6kelf"), SubResource("Resource_0gubk"), SubResource("Resource_2qs3y")])
 TreeStructure = "root
 	Robotics:Upgrade robot core capabilities:roboSpeed,+0.02:1:0:0
-		RoboSpeed:Increase robot movement speed:roboSpeed,+0.05:5:10:5
-			QuickMotors:Improve robot motors further:roboSpeed,+0.03:3:30:15
+		RoboSpeed:Increase robot movement speed:roboSpeed,+0.05:5:10:5:3
+			QuickMotors:Improve robot motors further:roboSpeed,+0.03:3:30:15:2
 				Overdrive:Push motors beyond normal limits:roboSpeed,+0.05;roboHeat,+0.02:2:100:50
 					NitroBoost:Temporary speed burst:roboSpeed,+0.08;roboHeat,+0.05:1:200:100
 					CoolingInject:Inject liquid nitrogen:roboHeat,-0.04:2:150:75
@@ -211,7 +211,7 @@ TreeStructure = "root
 				OpticalScanners:Automated vision inspection:productionQuality,+0.05:3:90:45
 					XRayInspection:Detect internal defects:productionQuality,+0.08:2:160:80
 	PowerSystem:Manage energy and power storage:energyConsumption,-0.02:1:0:0
-		EnergyEfficiency:Reduce energy consumption:energyConsumption,-0.05:5:30:15
+		EnergyEfficiency:Reduce energy consumption:energyConsumption,-0.05:5:30:15:3
 			BetterBatteries:Improve robot batteries:batteryCapacity,+0.1:4:50:25
 				HighDensityCells:Use high-density energy cells:batteryCapacity,+0.15;energyConsumption,-0.03:3:130:65
 					AnodeOptimization:Improve lithium flow:batteryCapacity,+0.05:2:160:80

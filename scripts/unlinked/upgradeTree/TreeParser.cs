@@ -41,9 +41,11 @@ public class TreeParser {
             MaxLevel = 1,
             BasePrice = 0,
             PriceIncrease = 0,
-            MinLevelForUnlock = 0,
+            MinLevelForUnlock = 1,
             Children = createChildren(tree).ToList(),
         };
+
+        root.State = NodeState.AVAILABLE;
 
         return root;
     }

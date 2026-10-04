@@ -3,11 +3,11 @@ using Godot;
 
 public class TreeLayoutConnectionGenerator {
 
-    public List<(Vector2 start, Vector2 end)> Generate(
+    public List<(TreeNode parent, TreeNode child, Vector2 start, Vector2 end)> Generate(
         TreeRoot tree,
         Dictionary<TreeNode, Vector2> positions
     ) {
-        List<(Vector2 start, Vector2 end)> connections = new();
+        List<(TreeNode parent, TreeNode child, Vector2 start, Vector2 end)> connections = new();
 
         AddConnections(
             tree.Root,
@@ -21,10 +21,12 @@ public class TreeLayoutConnectionGenerator {
     private void AddConnections(
         TreeNode parent,
         Dictionary<TreeNode, Vector2> positions,
-        List<(Vector2 start, Vector2 end)> connections
+        List<(TreeNode parent, TreeNode child, Vector2 start, Vector2 end)> connections
     ) {
         foreach(TreeNode child in parent.Children) {
             connections.Add((
+                parent,
+                child,
                 positions[parent],
                 positions[child]
             ));

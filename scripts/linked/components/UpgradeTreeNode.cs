@@ -18,6 +18,9 @@ public partial class UpgradeTreeNode : Node2D
 	[Export]
 	Sprite2D insideSprite;
 
+	[Export]
+	ShaderMaterial ShadowShader;
+
 	public Texture2D InsideTexture;
 
 	private RichTextLabel text;
@@ -37,12 +40,34 @@ public partial class UpgradeTreeNode : Node2D
 		text = GetNode<RichTextLabel>("Background/RichTextLabel");
 
 		replacePlaceholderString();
+		Material = ShadowShader;
+		node.StateChanged += OnStateChange;
+
+		Visible = false;
+		OnStateChange(NodeState.INVISIBLE, node.State);
 	}
 
 	private void GotInputEvent(Node viewport, InputEvent @event, long shapeIdx){
-		if(@event is InputEventMouseButton mouseButton && mouseButton.ButtonIndex == MouseButton.Left){
-			GD.Print("Clicked node");	
+		if(@event is InputEventMouseButton mouseButton && mouseButton.ButtonIndex == MouseButton.Left && mouseButton.Pressed){
+			GD.Print($"Node Bevor: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
+			node.CurrentLevel++;
+			GD.Print($"Node After: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
 		}
+	}
+
+	private void OnStateChange(NodeState oldState, NodeState newState){
+		if(newState == NodeState.LOCKED){
+			Visible = true;
+			Material = ShadowShader;
+			return;
+		}
+		if(newState == NodeState.AVAILABLE){
+			Visible = true;
+			Material = null;
+			return;
+		}
+		//TODO Add Case for Purchased
+
 	}
 
 	private void replacePlaceholderString(){
