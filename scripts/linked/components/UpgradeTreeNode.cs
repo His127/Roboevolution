@@ -49,9 +49,11 @@ public partial class UpgradeTreeNode : Node2D
 
 	private void GotInputEvent(Node viewport, InputEvent @event, long shapeIdx){
 		if(@event is InputEventMouseButton mouseButton && mouseButton.ButtonIndex == MouseButton.Left && mouseButton.Pressed){
-			GD.Print($"Node Bevor: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
-			node.CurrentLevel++;
-			GD.Print($"Node After: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
+			if(node.State == NodeState.AVAILABLE){
+				GD.Print($"Node Bevor: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
+				node.CurrentLevel++;
+				GD.Print($"Node After: lvl={node.CurrentLevel}, maxLvl={node.MaxLevel}, minLevelForUnlock={node.MinLevelForUnlock}");
+			}
 		}
 	}
 
